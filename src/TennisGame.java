@@ -1,9 +1,11 @@
 public class TennisGame {
     public static String getScore(String player1Name, String player2Name, int player1_Score, int player2_Score) {
-        String gameResult = "";
-        if (player1_Score == player2_Score) {
+        String gameResult;
+        boolean sameScore = player1_Score == player2_Score;
+        boolean overScore  = player1_Score >= 4 || player2_Score >= 4;
+        if (sameScore) {
             gameResult = getMinusScore(player1_Score);
-        } else if (player1_Score >= 4 || player2_Score >= 4) {
+        } else if (overScore) {
             int minusScore = player1_Score - player2_Score;
             if (minusScore == 1) gameResult = "Advantage player1";
             else if (minusScore == -1) gameResult = "Advantage player2";
